@@ -19,13 +19,21 @@ export class CustomerComponent implements OnInit {
       firstName: new FormControl(),
       lastName: new FormControl(),
       email: new FormControl(),
-      sendCatalog: new FormControl(true),
+      sendCatalog: new FormControl(true)
     });
   }
 
-  save(customerForm: NgForm) {
-    console.log(customerForm);
-    console.log(customerForm.form);
-    console.log('Saved: ' + JSON.stringify(customerForm.value));
+  save() {
+    console.log(this.customerForm);
+    console.log('Saved: ' + JSON.stringify(this.customerForm.value));
+  }
+
+  populateTestData(): void {
+    this.customerForm.setValue({
+      firstName: 'Stephan',
+      lastName: 'Meister',
+      email: 'in@val.id',
+      sendCatalog: false
+    });
   }
 }
